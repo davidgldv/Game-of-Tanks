@@ -46,7 +46,9 @@ int main(){
     return EXIT_SUCCESS;
 }
 void Actualizar(TCoord pos) {
+
     mvprintw( (int) pos.y, pos.x, "o"  );
+    refresh();
 }
 
 void Trayectoria(TCoord *pos, TCoord *vel, TCoord acc){
