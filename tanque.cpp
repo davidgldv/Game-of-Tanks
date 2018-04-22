@@ -34,9 +34,11 @@ int main(){
     pos.x = (tank[0].x+4);
     pos.y = (tank[0].y-4);
 
+	PintarTanque(tank);
+
     while(1){
-        PintarTanque(tank);
         Trayectoria(&pos, &vel, acc);
+	PintarTanque(tank);
         Actualizar(pos);
     }
 
@@ -46,9 +48,9 @@ int main(){
     return EXIT_SUCCESS;
 }
 void Actualizar(TCoord pos) {
-
-    mvprintw( (int) pos.y, pos.x, "o"  );
-    refresh();
+	
+	mvprintw( (int) pos.y, pos.x, "o");
+	refresh();
 }
 
 void Trayectoria(TCoord *pos, TCoord *vel, TCoord acc){
@@ -68,10 +70,10 @@ void CalcularTank(struct TCoord tanks[N]){
     b += a;
 
     tanks[contador].x = rand() % a;
-    tanks[contador].y = LINES -1;
+    tanks[contador].y = LINES-1;
     contador++;
     tanks[contador].x = b + (rand() %a) ;
-    tanks[contador].y = LINES -1;
+    tanks[contador].y = LINES-1;
 }
 
 void PintarTanque(struct TCoord tanks[N]) {
@@ -86,5 +88,4 @@ void PintarTanque(struct TCoord tanks[N]) {
                 mvprintw( (int) tanks[i].y-c, tanks[i].x+f, "0" ); 
 
     }
-    refresh();
 }
