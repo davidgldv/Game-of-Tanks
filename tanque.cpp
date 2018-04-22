@@ -39,6 +39,7 @@ int main(){
     while(1){
         Trayectoria(&pos, &vel, acc);
 	PintarTanque(tank);
+	sleep(1);
         Actualizar(pos);
     }
 
@@ -69,10 +70,10 @@ void CalcularTank(struct TCoord tanks[N]){
     b = (COLS * 0.5);
     b += a;
 
-    tanks[contador].x = rand() % a;
+    tanks[contador].x = (rand() % a) + 1;
     tanks[contador].y = LINES-1;
     contador++;
-    tanks[contador].x = b + (rand() %a) ;
+    tanks[contador].x = (b + (rand() %a)) - 1 ;
     tanks[contador].y = LINES-1;
 }
 
