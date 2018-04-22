@@ -15,7 +15,7 @@ void CalcularTank(struct TCoord tanks[N]);
 void PintarTanque(struct TCoord tanks[N]);
 void Trayectoria(TCoord *pos, TCoord *vel, TCoord acc);
 void Actualizar(TCoord pos);
-void ReiniciarIntercambiar();
+void ReiniciarIntercambiar(struct TCoord pos , struct TCoord tank ,int jugador);
 
 int a, b;
 
@@ -42,7 +42,7 @@ int main(){
 	PintarTanque(tank);
 	sleep(1);
         Actualizar(pos);
-	ReiniciarIntercambiar();
+	ReiniciarIntercambiar(struct TCoord pos , struct TCoord tank ,int jugador);
     }
 
     curs_set(1);
