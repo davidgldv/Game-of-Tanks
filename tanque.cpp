@@ -15,16 +15,17 @@ void CalcularTank(struct TCoord tanks[N]);
 void PintarTanque(struct TCoord tanks[N]);
 void Trayectoria(TCoord *pos, TCoord *vel, TCoord acc);
 void Actualizar(TCoord pos);
-
+void ReiniciarIntercambiar();
 
 int a, b;
 
 int main(){
     struct TCoord tank[N];
     struct TCoord pos = { 0., 0.  },
-                  vel = { 4., 50.  },
+                  vel = {1000., 45.  },
                   acc = { 0., -9.80665  };
 
+    int jugador = 0;
     srand(time(NULL));
     initscr();
     curs_set(0);
@@ -41,6 +42,7 @@ int main(){
 	PintarTanque(tank);
 	sleep(1);
         Actualizar(pos);
+	ReiniciarIntercambiar();
     }
 
     curs_set(1);
@@ -89,4 +91,19 @@ void PintarTanque(struct TCoord tanks[N]) {
                 mvprintw( (int) tanks[i].y-c, tanks[i].x+f, "0" ); 
 
     }
+}
+void ReiniciarIntercambiar(struct TCoord pos , struct TCoord tank ,int jugador){
+
+    if (pos.y = LINES && jugador = 0){
+	pos.x = (tank[1].x);
+    	pos.y = (tank[1].y-4);
+	jugador++;
+    }
+
+    if (pos.y = LINES && jugador = 1){
+	pos.x = (tank[0].x+4);
+    	pos.y = (tank[0].y-4);
+	jugador--;
+    }
+
 }
