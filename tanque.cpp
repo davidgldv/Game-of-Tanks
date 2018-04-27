@@ -7,21 +7,21 @@
 #define DELTA_T 0.01
 #define N 20
 
-struct TCoord {
+struct Coord {
     double x;
     double y;
 };
 struct Move{
 
-     TCoord pos ,
-     TCoord vel ,
-     TCoord acc ,
-     TCoord dir ,
+     Coord pos ,
+     Coord vel ,
+     Coord acc ,
+     Coord dir ,
 
 };
 int a;
 int b;
-void CalcularTank(struct TCoord tanks[N]){
+void calcular_tank(struct Coord tanks[N]){
     int contador = 0;
 
     clear();
@@ -36,7 +36,7 @@ void CalcularTank(struct TCoord tanks[N]){
     tanks[contador].x = (b + (rand() %a)) - 1 ;
     tanks[contador].y = LINES-1;
 }
-void PintarTanque(struct TCoord tanks[N]) {
+void pintar_tanque(struct Coord tanks[N]) {
 
     int i = 0;
     clear();
@@ -44,7 +44,7 @@ void PintarTanque(struct TCoord tanks[N]) {
     for(int f = 0; f < 4; f++){
         for(int c = 0; c < 4; c++)
             for(int i = 0; i < 2; i++)
-                mvprintw( (int) tanks[i].y-c, tanks[i].x+f, "0"  ); 
+                mvprintw( (int) tanks[i].y-c, tanks[i].x+f, "0"  )
 
     }
 
@@ -56,30 +56,29 @@ void PintarTanque(struct TCoord tanks[N]) {
 
 
 }
-void Actualizar(TCoord pos) {
+ preguntar_disparo(){
 
-    mvprintw( (int) pos.y, pos.x, "o");
-    refresh();
-}
+      mvprintf("Jugador %i",)
 
+ }
 int main(){
-    struct TCoord tank[N];
-
+    struct Coord tank[N];
     int jugador = 0;
+    int turno = 0;
 
     srand(time(NULL));
     initscr();
     curs_set(0);
 
-    CalcularTank(tank);
+    calculartank(tank);
 
-    pos.x = (tank[0].x+4);
-    pos.y = (tank[0].y-4);
+    Coord.pos.x = (tank[0].x+4);
+    Coord.pos.y = (tank[0].y-4);
 
-    PintarTanque(tank);
+    pintar_tanque(tank);
 
     while(1){
-        PintarTanque(tank);
+        pintar_tanque(tank);
         /*PreguntarVelyAng(alpha)*/
         sleep(1);
         /*Disparar*/
