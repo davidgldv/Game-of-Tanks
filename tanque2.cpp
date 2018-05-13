@@ -56,6 +56,8 @@ Coord2 preguntardisparo(int turno){
 	return res;
 	
 }
+
+
 void disparar(int turno,Movil bala) {
 	Coord2 ini;
     	do{
@@ -80,6 +82,19 @@ void disparar(int turno,Movil bala) {
             usleep(1000000 * DELTA_T);
     	}while(bala.pos.y > 0);	
 }
+void comprobar(int turno,Movil bala, Player jugador[N]){
+	int a = (COLS *0.5);
+	int b = (LINES *0.5);
+	if(turno % 2 == 0 && bala.pos == jugador[1].body.pos){
+		clear();
+		mvprintw(b,a, "El jugador 1 ha ganado");
+	}
+	if(turno % 2 > 0 && bala.pos == jugador[0].body.pos){
+		clear();
+		mvprintw(b,a, "El jugador 2 ha ganado");
+	}
+
+}
 int main () {
 	Movil bala = {{0.,0.},{0.,0.},{0.,-9.8},{0.,0.}};
 	int turno = 0;
@@ -100,7 +115,9 @@ int main () {
 		bala.pos=jugador[turno % 2].body.pos;
 		bala.vel=preguntardisparo(turno);
 		disparar(turno,bala);
+		comprobar(turno,bala,jugador);
 		turno++;
+		clear();
 	}
 	endwin();
 
